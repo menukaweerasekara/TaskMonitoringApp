@@ -7,7 +7,7 @@ namespace TaskMonitoringApp
 {
     class TaskList
     {
-        private List<Task> _tasks { get; set; }
+        private List<Task> _tasks { get; set; } = new List<Task>();
 
         private void DisplayTaskDetails(Task task)
         {
@@ -53,7 +53,7 @@ namespace TaskMonitoringApp
             var matchingTasks = _tasks.Where(t => t.TaskName.Contains(searchPhrase)).ToList();
             DisplayTasksDetails(matchingTasks);
         }
-        //16.25 is time to start
+        
     }
 
 }
