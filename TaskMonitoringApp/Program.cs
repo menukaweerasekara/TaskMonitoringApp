@@ -15,7 +15,8 @@ namespace TaskMonitoringApp
             Console.WriteLine("2 Display task by Duedate");
             Console.WriteLine("3 View all tasks");
             Console.WriteLine("4 Search for Task by name");
-            Console.WriteLine("Press 'x' to ext the program");
+            Console.WriteLine("Press 'x' to exit the program");
+
 
             var userInput = Console.ReadLine();
 
@@ -36,6 +37,7 @@ namespace TaskMonitoringApp
                         var newTask = new Task(name, duedate); 
                         taskList.AddTask(newTask);
                         
+
                         break;
                     case "2":
                         Console.WriteLine("Task duedate to search:");
@@ -48,7 +50,9 @@ namespace TaskMonitoringApp
                         break;
                     case "4":
                         Console.WriteLine("Task search pharse");
-                        Console.ReadLine();
+                        var searchPharse = Console.ReadLine();
+
+                        taskList.DisplayMatchingTasks(searchPharse);
                         break;
                     case "x":
                         return  ;
@@ -56,8 +60,19 @@ namespace TaskMonitoringApp
                         Console.WriteLine("Select vaild option");
                         break;
                 }
-                Console.WriteLine("Select Option");
+             
+                Console.WriteLine("Select a option");
+                Console.WriteLine("1 Add Task");
+                Console.WriteLine("2 Display task by Duedate");
+                Console.WriteLine("3 View all tasks");
+                Console.WriteLine("4 Search for Task by name");
+                Console.WriteLine("Press 'x' to exit the program");
+
                 userInput = Console.ReadLine();
+                Console.Clear();
+
+
+
 
             }
                     
