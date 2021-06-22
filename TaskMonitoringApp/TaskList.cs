@@ -53,7 +53,6 @@ namespace TaskMonitoringApp
             var matchingTasks = _tasks.Where(t => t.TaskName.Contains(searchPhrase)).ToList();
             DisplayTasksDetails(matchingTasks);
         }
-        
     }
 
 }
