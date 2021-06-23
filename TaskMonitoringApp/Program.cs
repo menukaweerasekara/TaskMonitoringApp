@@ -68,6 +68,9 @@ namespace TaskMonitoringApp
                         break;//end of the this case
                 }
                 //This will show the user the options again so the user can pick anything he/she wants
+                Console.WriteLine("Press any button to see main menu options");
+                Console.ReadLine();
+
                 Console.WriteLine("Select a option");
                 Console.WriteLine("1 Add Task");
                 Console.WriteLine("2 Display task by Duedate");
@@ -76,7 +79,7 @@ namespace TaskMonitoringApp
                 Console.WriteLine("Press 'x' to exit the program");
 
                 userInput = Console.ReadLine();//this displays the options without skipping to the 
-                Console.Clear();//this clears the lines before so the code can be more cleaner.
+                Console.Clear();//this clears the lines before so the code can be more cleaner when you do the other tasks.
 
 
 
