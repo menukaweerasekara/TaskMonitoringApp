@@ -35,15 +35,15 @@ namespace TaskMonitoringApp
                         Console.WriteLine("Task name:");//add the task name
                         var name = Console.ReadLine();
 
-                        Console.WriteLine("Task duedate:");//add a duedate for the task
-                        var duedate = Console.ReadLine();
+                        Console.WriteLine("Task duedate(make sure date format is like this:__/__/____)):");//add a duedate for the task
+                        DateTime duedate = Convert.ToDateTime(Console.ReadLine());
 
                         var newTask = new Task(name, duedate);// this will display both of them side by side 
                         taskList.AddTask(newTask);//save it the taskList
                         break;//this will be the end of option 1
 
                     case "2":// in this option the user can search for task using duedate
-                        Console.WriteLine("Task duedate to search:");//ask user to search for a task by duedate
+                        Console.WriteLine("Task duedate to search(make sure date format is like this:__/__/____):");//ask user to search for a task by duedate
                         var searchDuedate = Console.ReadLine();
                         
                         taskList.DisplayTask(searchDuedate);//this will check all task in the taskList and show matching results. taskList gets the options from the first option

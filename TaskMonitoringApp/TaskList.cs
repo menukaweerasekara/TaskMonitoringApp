@@ -29,7 +29,7 @@ namespace TaskMonitoringApp
             _tasks.Add(task);
         }
 
-        public void DisplayTask(string duedate)//this part will allow the user to search for by the duedate
+        public void DisplayTask(DateTime duedate)//this part will allow the user to search for by the duedate
         {
             var task = _tasks.FirstOrDefault(t => t.Duedate == duedate);
             if (task == null)
@@ -53,6 +53,11 @@ namespace TaskMonitoringApp
         {
             var matchingTasks = _tasks.Where(t => t.TaskName.Contains(searchPhrase)).ToList();
             DisplayTasksDetails(matchingTasks);//this show results to anything that matches the word you type.
+        }
+
+        internal void DisplayTask(string searchDuedate)
+        {
+            throw new NotImplementedException();
         }
     }
 
