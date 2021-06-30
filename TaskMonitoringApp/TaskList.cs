@@ -55,10 +55,7 @@ namespace TaskMonitoringApp
             DisplayTasksDetails(matchingTasks);//this show results to anything that matches the word you type.
         }
 
-        internal void DisplayTask(string searchDuedate)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
 }
