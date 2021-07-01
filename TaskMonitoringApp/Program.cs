@@ -26,26 +26,41 @@ namespace TaskMonitoringApp
 
             var taskList = new TaskList();
 
+           
+
             while (true)//starts a loop
             {
+                DateTime searchDuedate = new DateTime();
+                DateTime duedate = new DateTime();
+
                 switch (userInput)//starts the switch statment for the usesrs answer in the selector screen
                 {
+                                      
                     case "1"://for option 1 make new task these will the options the user will be given with
 
                         Console.WriteLine("Task name:");//add the task name
                         var name = Console.ReadLine();
 
-                        Console.WriteLine("Task duedate(make sure date format is like this:__/__/____)) and add time :");//add a duedate for the task
-                        DateTime duedate = Convert.ToDateTime(Console.ReadLine());
+                        Console.WriteLine("Task duedate(make sure date format is like this:__/__/____) and add time if you want to like this (__:__:__ p.m./ a.m.):");//add a duedate for the task
+                        while (!DateTime.TryParse(Console.ReadLine(), out searchDuedate))
+                        {
+                            Console.WriteLine("Invaild answer try again using this format. (__/__/__) and if you want to add time like this(__:__:__ p.m./a.m.)");
+
+                        }
 
                         var newTask = new Task(name, duedate);// this will display both of them side by side 
                         taskList.AddTask(newTask);//save it the taskList
                         break;//this will be the end of option 1
 
                     case "2":// in this option the user can search for task using duedate
-                        Console.WriteLine("Task duedate to search(make sure date format is like this:__/__/____):");//ask user to search for a task by duedate
-                        DateTime searchDuedate = Convert.ToDateTime(Console.ReadLine());
-                        
+                        Console.WriteLine("Task duedate to search(make sure date format is like this:__/__/____) and add time if you want to like this (__:__:__ p.m./ a.m.):");//ask user to search for a task by duedate
+                      
+
+                        while (!DateTime.TryParse(Console.ReadLine(), out searchDuedate))
+                        {
+                            Console.WriteLine("Invaild answer try again using this format. (__/__/__) and if you want to add time like this(__:__:__ p.m./a.m.)");
+
+                        }
                         taskList.DisplayTask(searchDuedate);//this will check all task in the taskList and show matching results. taskList gets the options from the first option
                         break;//end of option 2
 
