@@ -25,13 +25,14 @@ namespace TaskMonitoringApp
             var userInput = Console.ReadLine();// making userInput a variable
 
             var taskList = new TaskList();
+        
+            DateTime searchDuedate = new DateTime();
 
-           
 
+         
             while (true)//starts a loop
             {
-                DateTime searchDuedate = new DateTime();
-                DateTime duedate = new DateTime();
+               
 
                 switch (userInput)//starts the switch statment for the usesrs answer in the selector screen
                 {
@@ -42,13 +43,13 @@ namespace TaskMonitoringApp
                         var name = Console.ReadLine();
 
                         Console.WriteLine("make sure date format is like this:__/__/____) and add time if you want to like this (__:__:__ p.m./ a.m.\nTask duedate:");//add a duedate for the task
-                        while (!DateTime.TryParse(Console.ReadLine(), out searchDuedate))
+                       while  (!DateTime.TryParse(Console.ReadLine(), out searchDuedate))
                         {
                             Console.WriteLine("Invaild answer try again using this format. (__/__/__) and if you want to add time like this(__:__:__ p.m./a.m.)");
 
                         }
 
-                        var newTask = new Task(name, duedate);// this will display both of them side by side 
+                        var newTask = new Task(name, searchDuedate);// this will display both of them side by side 
                         taskList.AddTask(newTask);//save it the taskList
                         break;//this will be the end of option 1
 
@@ -58,7 +59,7 @@ namespace TaskMonitoringApp
 
                         while (!DateTime.TryParse(Console.ReadLine(), out searchDuedate))
                         {
-                            Console.WriteLine("Invaild answer try again using this format. (__/__/__) and if you want to add time like this(__:__:__ p.m./a.m.)");
+                            Console.WriteLine("Invaild answer try again using this format. (__/__/__) and if you want to add time like this(__:__:__ p.m./a.m.)\nsearch duedate");
 
                         }
                         taskList.DisplayTask(searchDuedate);//this will check all task in the taskList and show matching results. taskList gets the options from the first option
