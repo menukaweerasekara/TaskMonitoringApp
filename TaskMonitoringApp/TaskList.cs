@@ -18,7 +18,9 @@ namespace TaskMonitoringApp
         {
             foreach (var task in tasks)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 DisplayTaskDetails(task);
+                Console.ForegroundColor = ConsoleColor.Green;
 
             }
 
@@ -26,20 +28,28 @@ namespace TaskMonitoringApp
 
         public void AddTask(Task task)//this will allow the user to add task 
         {
+           
             _tasks.Add(task);
+           
         }
+     
 
         public void DisplayTask(DateTime duedate)//this part will allow the user to search for by the duedate
         {
             var task = _tasks.FirstOrDefault(t => t.Duedate == duedate);
             if (task == null)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Task not found");//if the date you type isn't found this will display
+                Console.ForegroundColor = ConsoleColor.Green;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 DisplayTaskDetails(task);//if it is found this display all matching task to that duedate
+                Console.ForegroundColor = ConsoleColor.Green;
             }
+
             
         }
 

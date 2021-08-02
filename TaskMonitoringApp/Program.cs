@@ -9,7 +9,10 @@ namespace TaskMonitoringApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Task Monitoring App");//Welcoming the user to the app
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("\t\t\t\tWelcome to the Task Monitoring App\t");
+            Console.WriteLine("\t\t\t\t__________________________________\t");//Welcoming the user to the app
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Press any button to continue");//this will show before the user gets asked any questions to continue you can press any buttons
             Console.ReadLine();
             Console.Clear();//clears the welcome and any button part before join options in the selector screen.This make it more easier to see
@@ -17,9 +20,10 @@ namespace TaskMonitoringApp
             Console.WriteLine("1 Add Task");
             Console.WriteLine("2 Display task by Duedate");
             Console.WriteLine("3 View all tasks");
-            Console.WriteLine("4 Search for Task by name");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Press 'x' to exit the program");//to exit the app the user can press x anytime the user has the option to.
-            
+            Console.ForegroundColor = ConsoleColor.Green;
+
 
 
             var userInput = Console.ReadLine();// making userInput a variable
@@ -42,11 +46,12 @@ namespace TaskMonitoringApp
                         Console.WriteLine("Task name:");//add the task name
                         var name = Console.ReadLine();
 
-                        Console.WriteLine("make sure date format is like this:__/__/____) and add time if you want to like this (__:__:__ p.m./ a.m.\nTask duedate:");//add a duedate for the task
+                        Console.WriteLine("make sure date format is like this:__/__/____)\nand add time if you want to like this (__:__:__ p.m./ a.m.\nTask duedate:");//add a duedate for the task
                        while  (!DateTime.TryParse(Console.ReadLine(), out searchDuedate))
                         {
-                            Console.WriteLine("Invaild answer try again using this format. (__/__/__) and if you want to add time like this(__:__:__ p.m./a.m.)");
-
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Invaild answer try again using this format. (__/__/__)\nand if you want to add time like this(__:__:__ p.m./a.m.)");
+                            Console.ForegroundColor = ConsoleColor.Green;
                         }
 
                         var newTask = new Task(name, searchDuedate);// this will display both of them side by side 
@@ -54,13 +59,14 @@ namespace TaskMonitoringApp
                         break;//this will be the end of option 1
 
                     case "2":// in this option the user can search for task using duedate
-                        Console.WriteLine("make sure date format is like this:__/__/____) and add time if you want to like this (__:__:__ p.m./ a.m.\nTask duedate search:");//ask user to search for a task by duedate
+                        Console.WriteLine("make sure date format is like this:__/__/____)\nand add time if you want to like this (__:__:__ p.m./ a.m.\nTask duedate search:");//ask user to search for a task by duedate
                       
 
                         while (!DateTime.TryParse(Console.ReadLine(), out searchDuedate))
                         {
-                            Console.WriteLine("Invaild answer try again using this format. (__/__/__) and if you want to add time like this(__:__:__ p.m./a.m.)\nsearch duedate");
-
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Invaild answer try again using this format. (__/__/__)\nand if you want to add time like this(__:__:__ p.m./a.m.)\nsearch duedate");
+                            Console.ForegroundColor = ConsoleColor.Green;
                         }
                         taskList.DisplayTask(searchDuedate);//this will check all task in the taskList and show matching results. taskList gets the options from the first option
                         break;//end of option 2
@@ -79,9 +85,12 @@ namespace TaskMonitoringApp
                     case "x"://When the user wants to exit the app the user can press x and it will stop the application
                         return  ;
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Select vaild option");//if the answer user types is incorrect this will come and tell user to chose right answer
                         Console.WriteLine("Choose a Correct option");
+                        Console.ForegroundColor = ConsoleColor.Green;
                         break;//end of the this case
+
                 }
                 //This will show the user the options again so the user can pick anything he/she wants
                 Console.WriteLine("Press any button to see main menu options");
@@ -92,8 +101,9 @@ namespace TaskMonitoringApp
                 Console.WriteLine("2 Display task by Duedate");
                 Console.WriteLine("3 View all tasks");
                 Console.WriteLine("4 Search for Task by name");
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Press 'x' to exit the program");
-
+                Console.ForegroundColor = ConsoleColor.Green;
                 userInput = Console.ReadLine();//this displays the options without skipping to the 
                 Console.Clear();//this clears the lines before so the code can be more cleaner when you do the other tasks.
 
